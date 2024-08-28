@@ -1,0 +1,72 @@
+
+var iFileName = "Paladin - Oath of Madness DM, transcribed by Jes]";
+RequiredSheetVersion(12.999);
+
+SourceList["DM"] = {
+	name : Paladin Homebrew: Oath of Madness",
+	abbreviation : "DM",
+	group : "Oath of Madness",
+	url : "http://walrock-homebrew.blogspot.com/2015/08/sacred-oath-oath-of-common-man-second.html",
+	date : "2015/08/11"
+};
+
+AddSubClass("paladin", "common", {
+	regExpSearch : /^(?=.*common)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
+	subname : "Oath of the Common Man",
+	source : ["DM", 0],
+	spellcastingExtra : ["longstrider", "sanctuary", "calm emotions", "enhance ability", "counterspell", "tongues", "fabricate", "freedom of movement", "legend lore", "wall of stone"],
+	features : {
+		"subclassfeature3" : {
+			name : "Channel Divinity: Curse of Knowledge",
+			source : ["DM", 0],
+			minlevel : 3,
+			description : desc([
+				You mark a creature within 60 ft. of you that you can see to experience a fragment of the Far Realm. This creature must make a Wisdom save with a DC equal to your spell save DC. The creature takes 3d6 psychic damage on a failure, or half as much on a success. On a failure, at the start of the creature's turns, they must repeat the save and take 3d6 psychic damage on a failure. On a success, the effect ends.
+			]),
+			action : ["action", ""]
+		},
+		"subclassfeature3.1" : {
+			name : "Channel Divinity: Curse of Madness",
+			source : ["DM", 0],
+			minlevel : 3,
+			description : desc([Choose a creature within 60 ft. that you can see. This creature must make a Wisdom save with a DC equal to your spell save DC. On a failure, the creature becomes hostile to all creatures that it can sense; they must use their turn to attack the creature nearest to them. At the start of each turn, the creature may repeat the save, ending the effect on a success.
+			]),
+			action : ["action", ""]
+		},
+		"subclassfeature7" : {
+			name : "Aura of Insanity",
+			source : ["DM", 0],
+			minlevel : 7,
+			description : desc([Starting at 7th level, you gain an aura that afflicts the minds of those around you like a plague. Once per turn, when you hit a creature with an attack, creatures of your choice within 10 ft. take psychic damage equal to your proficiency bonus.
+				"At 18th level, the range of this aura increases to 30 ft"
+			]),
+		},
+		"subclassfeature15" : {
+			name : "Create Thralls",
+			source : ["DM", 0],
+			minlevel : 15,
+			description : desc([
+				At 15th level, you gain the power to bend others' minds under your will. Choose a number of enemies within 30 ft. equal to your Charisma modifier (minimum of 1). These creatures must make a Wisdom save or be enthralled under your control. Enthralled creatures automatically take the Dodge action on their turn, unless you command them to take a different action using your bonus action. You may control all enthralled creatures with a single use of your command. This effect ends after 1 minute.
+
+Once you enthrall enemies with this feature, you can't do so again until you finish a long rest, unless you expend a spell slot of 3rd level or higher to use this feature again.
+			]),
+			action : ["bonus action", ""]
+		},
+		"subclassfeature20" : {
+			name : "Maw of the Cosmos",
+			source : ["DM", 0],
+			minlevel : 20,
+			description : desc([
+				At 20th level, you gain the ability to transform into a terrible form of tentacles, eyes, and darkness that grants you the following benefits for 1 minute:
+
+You can see and sense the thoughts of all creatures within 60 ft.
+You may make melee attacks from anywhere within 30 ft. of your actual position.
+As an attack or a bonus action, you may attempt to grapple a target within 30 ft. of you. If you succeed, you may move the target to any location within 30 ft. using your movement speed. This grapple does not reduce your movement speed.
+Once you use this feature, you can't use it again until you finish a long rest, unless you expend a 5th-level spell slot to use it again.
+			]),
+			recovery : "long rest",
+			usages : 1,
+			action : ["action", ""]
+		}
+	}
+});
